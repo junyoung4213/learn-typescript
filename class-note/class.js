@@ -1,4 +1,12 @@
 // ES2015 (ES6)
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+var capt = new Person('캡틴', 100);
+
+/* 위 코드는 아래 코드와 동일 */ 
 class Person {
   // 클래스 로직
   constructor(name, age) {
