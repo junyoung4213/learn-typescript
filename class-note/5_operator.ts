@@ -28,10 +28,12 @@ interface Person {
   age: number;
 }
 // function askSomeone(someone: Developer | Person) {
-//   someone.name;
-//   someone.skill;  // 위에서 유니온 타입으로 Developer, Person을 정의했지만 skill과 age는 불러올 수 없다.
-//   someone.age;  // 유니온 타입으로 정의했다 하더라도, 인터페이스간에 중복된 값만 불러올 수 있는데 이는 보장된 속성이 아닌 것을 불러오려고 하면 에러 발생 위험이 있기 때문이다.
+//   // someone.name;
+//   // someone.skill;  // 위에서 유니온 타입으로 Developer, Person을 정의했지만 skill과 age는 불러올 수 없다.
+//   // someone.age;  // 유니온 타입으로 정의했다 하더라도, 인터페이스간에 중복된 값만 불러올 수 있는데 이는 보장된 속성이 아닌 것을 불러오려고 하면 에러 발생 위험이 있기 때문이다.
 // }
+// askSomeone({ name: '디벨로퍼', skill: '웹 개발'});
+// askSomeone({ name: '캡틴', age: 100});
 
 function askSomeone(someone: Developer & Person) { // 인터섹션은 Developer와 Person의 속성을 전부 포함하기 때문에 모두 접근이 가능하다
   someone.name;
@@ -39,6 +41,8 @@ function askSomeone(someone: Developer & Person) { // 인터섹션은 Developer�
   someone.age;
 }
 
+askSomeone({ name: '디벨로퍼', skill: '웹 개발', age: 34});
+// askSomeone({ name: '캡틴', age: 100});
 
 // var seho: string | number | boolean;
 // var capt: string & number & boolean;
