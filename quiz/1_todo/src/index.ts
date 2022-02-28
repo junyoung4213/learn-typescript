@@ -30,11 +30,11 @@ function completeTodo(index: number, todo: object): void {
 }
 
 // business logic
-function logFirstTodo(): any {
+function logFirstTodo(): object {
   return todoItems[0];
 }
 
-function showCompleted(): any {
+function showCompleted() {
   return todoItems.filter(item => item.done);
 }
 
