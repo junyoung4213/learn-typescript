@@ -83,6 +83,7 @@ const obj: Dropdown<number> = { value: 10, selected: false};
 interface LengthType {
   length: number;
 }
+
 /* extends를 이용해 interface를 상속받아서 length를 가진 객체를 포함한 타입만 받게 선언한다*/
 function logTextLength<T extends LengthType>(text: T): T {
   text.length;
@@ -90,3 +91,17 @@ function logTextLength<T extends LengthType>(text: T): T {
 }
 logTextLength('abc'); // 문자열은 length를 가지고 있으므로 사용 가능
 logTextLength(10); // 숫자형은 length를 가지고 있지 않으므로 사용 불가능
+
+// 제네릭 타입 제한 3 - keyof
+interface ShoppingItem {
+  name: string;
+  price: number;
+  stock: number;
+}
+
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+  return itemOption;
+}
+// getShoppingItemOption(10);
+// getShoppingItemOption('a');
+getShoppingItemOption('name');
